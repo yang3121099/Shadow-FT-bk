@@ -539,36 +539,36 @@
 #   --flash_attn fa2 \
 #   --overwrite_cache false
 
-# ###### I  max=2000  lr=0.002 ######
-# mkdir -p "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/I-2k-lora-rank128-lr0.002-Shadow_2k"
-# cd "/home/ubuntu/Shadow"
-# llamafactory-cli train \
-#   --model_name_or_path "/home/ubuntu/models//Qwen3-8B" \
-#   --stage sft \
-#   --do_train true \
-#   --finetuning_type lora --lora_rank 128 \
-#   --dataset "Shadow_2k" \
-#   --template "qwen3" \
-#   --cutoff_len 4096 \
-#   --max_samples 2000 \
-#   --output_dir "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/I-2k-lora-rank128-lr0.002-Shadow_2k" \
-#   --per_device_train_batch_size 2 \
-#   --gradient_accumulation_steps 16 \
-#   --learning_rate 0.002 \
-#   --num_train_epochs 1 \
-#   --logging_steps 1 \
-#   --save_steps 1000 \
-#   --plot_loss true \
-#   --lr_scheduler_type cosine \
-#   --warmup_ratio 0.1 \
-#   --bf16 true \
-#   --val_size 0.01 \
-#   --per_device_eval_batch_size 1 \
-#   --eval_strategy steps \
-#   --eval_steps 10000 \
-#   --trust_remote_code True \
-#   --flash_attn fa2 \
-#   --overwrite_cache false
+###### I  max=2000  lr=0.002 ######
+mkdir -p "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/I-2k-lora-rank128-lr0.002-Shadow_2k"
+cd "/home/ubuntu/Shadow"
+llamafactory-cli train \
+  --model_name_or_path "Qwen/Qwen3-8B" \
+  --stage sft \
+  --do_train true \
+  --finetuning_type lora --lora_rank 128 \
+  --dataset "Shadow_2k" \
+  --template "qwen3" \
+  --cutoff_len 4096 \
+  --max_samples 2000 \
+  --output_dir "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/I-2k-lora-rank128-lr0.002-Shadow_2k" \
+  --per_device_train_batch_size 2 \
+  --gradient_accumulation_steps 16 \
+  --learning_rate 0.002 \
+  --num_train_epochs 1 \
+  --logging_steps 1 \
+  --save_steps 1000 \
+  --plot_loss true \
+  --lr_scheduler_type cosine \
+  --warmup_ratio 0.1 \
+  --bf16 true \
+  --val_size 0.01 \
+  --per_device_eval_batch_size 1 \
+  --eval_strategy steps \
+  --eval_steps 10000 \
+  --trust_remote_code True \
+  --flash_attn fa2 \
+  --overwrite_cache false
 
 # ##### LoRA delta-merge #####
 # python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
