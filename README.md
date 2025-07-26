@@ -2,14 +2,6 @@
 
 
 ```
-# 安装conda
-# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-# bash Miniconda3-latest-Linux-x86_64.sh
-# eval "$(/home/ubuntu/miniconda3/bin/conda shell.bash hook)"
-
-# conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
-# conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
-
 # 创建环境
 conda create -n factory python=3.10 -y
 conda activate factory
