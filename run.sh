@@ -3,7 +3,7 @@
 ##### 0. Globals                                                             #####
 ###############################################################################
 # WORKSPACE_DIR="$(cd "$(dirname "$0")" && pwd)"
-WORKSPACE_DIR="/home/ubuntu/Shadow"
+WORKSPACE_DIR="./"
 RESULTS_DIR="$WORKSPACE_DIR/results"
 SCRIPT_OUTPUT_DIR="$WORKSPACE_DIR/scripts"
 mkdir -p "$RESULTS_DIR" "$SCRIPT_OUTPUT_DIR"
@@ -56,7 +56,7 @@ maybe_rel() { [[ $1 = /* ]] && echo "$1" || echo "../$1"; }
 ###############################################################################
 ##### 1. Base-model resolution (no jq)                                       #####
 ###############################################################################
-MODEL_DIR="/home/ubuntu/models/" # ""→HF
+MODEL_DIR="" # ""→HF
 MODEL_PAIR_FILE="$WORKSPACE_DIR/examples/model_pair.json"
 BASE_MODELS=(
   # "Qwen2.5-14B"
