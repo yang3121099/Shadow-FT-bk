@@ -2,8 +2,9 @@
 ###############################################################################
 ##### 0. Globals                                                             #####
 ###############################################################################
-# WORKSPACE_DIR="$(cd "$(dirname "$0")" && pwd)"
-WORKSPACE_DIR="./"
+WORKSPACE_DIR="$(cd "$(dirname "$0")" && pwd)"
+# WORKSPACE_DIR="/home/ubuntu/Shadow" #你的绝对路径
+
 RESULTS_DIR="$WORKSPACE_DIR/results"
 SCRIPT_OUTPUT_DIR="$WORKSPACE_DIR/scripts"
 mkdir -p "$RESULTS_DIR" "$SCRIPT_OUTPUT_DIR"
