@@ -750,7 +750,7 @@ for PAIR in "${MODEL_PAIRS[@]}"; do
     echo "python3 ./run.py ./eval_shadow_20250727_part2.py -r 20250727200010"
     echo "python3 ./run.py ./eval_shadow_20250727.py -r 20250727200013"
 
-
+    echo "cd ../"
     echo "pip install huggingface_hub"
     echo "python upload_hf.py"
 
