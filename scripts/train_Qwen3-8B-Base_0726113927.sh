@@ -787,6 +787,15 @@ llamafactory-cli train \
 # #  --merge_tag "B2B" \
 # #  --template "qwen3"
 
+B-2k-lora-rank128-lr0.000005-Shadow_2k/ I-2k-lora-rank128-lr0.000005-Shadow_2k/
+B-2k-lora-rank128-lr0.00001-Shadow_2k/  I-2k-lora-rank128-lr0.00001-Shadow_2k/
+B-2k-lora-rank128-lr0.00002-Shadow_2k/  I-2k-lora-rank128-lr0.00002-Shadow_2k/
+B-2k-lora-rank128-lr0.00005-Shadow_2k/  I-2k-lora-rank128-lr0.00005-Shadow_2k/
+B-2k-lora-rank128-lr0.0001-Shadow_2k/   I-2k-lora-rank128-lr0.0001-Shadow_2k/
+B-2k-lora-rank128-lr0.0002-Shadow_2k/   I-2k-lora-rank128-lr0.0002-Shadow_2k/
+B-2k-lora-rank128-lr0.0005-Shadow_2k/   I-2k-lora-rank128-lr0.0005-Shadow_2k/
+B-2k-lora-rank128-lr0.001-Shadow_2k/    I-2k-lora-rank128-lr0.001-Shadow_2k/
+B-2k-lora-rank128-lr0.002-Shadow_2k/    I-2k-lora-rank128-lr0.002-Shadow_2k/
 # ##### Evaluation list #####
 # # ('0726/result-Qwen3-8B-Base-0726/merged-B2I-lr0.000005','/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/merged-B2I-lr0.000005'),
 # # ('0726/result-Qwen3-8B-Base-0726/merged-I2I-lr0.000005','/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/merged-I2I-lr0.000005'),

@@ -27,7 +27,7 @@ math_eval_cfg = dict(
     evaluator=dict(type=MATHEvaluator, version='v2'),
     pred_postprocessor=dict(type=math_postprocess_v2))
 
-minerva_math_datasets = [
+math_datasets = [
     dict(
         type=MATHDataset,
         abbr='math',
