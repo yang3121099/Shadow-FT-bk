@@ -20,7 +20,7 @@ export COMPASS_DATA_CACHE="." # 若报错则改为绝对路径的 "YOURS/opencom
 # wget https://github.com/open-compass/opencompass/releases/download/0.2.2.rc1/OpenCompassData-core-20240207.zip
 # python3 -m zipfile -e  OpenCompassData-core-20240207.zip  ./data
 
-pip install lmdeploy evalplus==0.3.1 latex2sympy2_extended math_verify prettytable jieba rouge_chinese rank_bm25 gradio_client tree_sitter_languages  fuzzywuzzy  h5py
+pip install lmdeploy evalplus==0.3.1 latex2sympy2_extended math_verify prettytable jieba rouge_chinese rank_bm25 gradio_client tree_sitter_languages  fuzzywuzzy  h5py peft==0.15.2
 git clone github.com/open-compass/human-eval
 cd human-eval && pip install -e .
 pip install git+https://github.com/EleutherAI/lm-evaluation-harness.git
@@ -33,6 +33,38 @@ cd ../../../Shadow #或绝对路径
 bash run.sh
 
 # 打开新创建的sh文件，全选粘贴到命令行即可
+```
+
+
+
+# 执行测评代码
+
+```
+# git add . && git commit -m "update $(date +%Y-%m-%d)" && git push origin main
+git pull origin main #更新代码
+
+pip install "opencompass[lmdeploy]"
+
+cd ./src
+bash ./copy_files.sh /YOURENV/miniconda3/envs/factory/lib/python3.10/site-packages
+
+export COMPASS_DATA_CACHE="YOURS/opencompass" # 若报错则改为绝对路径
+
+
+python3 ./run.py ./eval_shadow_202505.py -r 20250727200010 # 校准 确认batch大小
+
+
+python3 ./run.py ./eval_shadow_20250727_part1.py -r 20250727200010
+python3 ./run.py ./eval_shadow_20250727_part2.py -r 20250727200010
+python3 ./run.py ./eval_quantw_20250727.py -r 20250727200011
+python3 ./run.py ./eval_shadow_20250727.py -r 20250727200013
+
+
+pip install huggingface_hub #上传到hf
+python upload_hf.py
+
+
+
 ```
 以下是Readme，师兄无需阅读
 

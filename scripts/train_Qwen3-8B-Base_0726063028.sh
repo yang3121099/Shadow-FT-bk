@@ -76,29 +76,29 @@ llamafactory-cli train \
 
 ##### LoRA delta-merge #####
 python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
-  --adapter_path "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/B-2k-lora-rank128-lr0.0002-Shadow_2k" \
-  --target_base "/home/ubuntu/models//Qwen3-8B" \
+  --adapter_path "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/B-2k-lora-rank128-lr0.0002-Shadow_2k/checkpoint-62" \
+  --target_base "Qwen/Qwen3-8B" \
   --merge_tag "B2I" \
   --template "qwen3"
 # result-Qwen3-8B-Base-0726/B-2.0k-lora-rank128-lr-Shadow_2k
 # result-Qwen3-8B-Base-0726/B-2k-lora-rank128-lr0.0002-Shadow_2k
 
 python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
-  --adapter_path "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/I-2k-lora-rank128-lr0.0002-Shadow_2k" \
-  --target_base "/home/ubuntu/models//Qwen3-8B" \
+  --adapter_path "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/I-2k-lora-rank128-lr0.0002-Shadow_2k/checkpoint-62" \
+  --target_base "Qwen/Qwen3-8B" \
   --merge_tag "I2I" \
   --template "qwen3"
 
 
 python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
-  --adapter_path "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/B-2k-lora-rank128-lr0.0002-Shadow_2k" \
-  --target_base "/home/ubuntu/models//Qwen3-8B-Base" \
+  --adapter_path "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/B-2k-lora-rank128-lr0.0002-Shadow_2k/checkpoint-62" \
+  --target_base "Qwen/Qwen3-8B-Base" \
   --merge_tag "B2B" \
   --template "qwen3"
 
 python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
-  --adapter_path "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/I-2k-lora-rank128-lr0.0002-Shadow_2k" \
-  --target_base "/home/ubuntu/models//Qwen3-8B-Base" \
+  --adapter_path "/home/ubuntu/Shadow/results/0726/result-Qwen3-8B-Base-0726/I-2k-lora-rank128-lr0.0002-Shadow_2k/checkpoint-62" \
+  --target_base "Qwen/Qwen3-8B-Base" \
   --merge_tag "I2B" \
   --template "qwen3"
 

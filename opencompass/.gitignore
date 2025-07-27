@@ -13,7 +13,7 @@ configs/eval_debug*.py
 configs/viz_*.py
 configs/**/*_bkup.py
 opencompass/**/*_bkup.py
-data
+data/data
 work_dirs
 outputs
 models/*
@@ -23,7 +23,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.ipynb
-
+*.parquet*
 # C extensions
 *.so
 
@@ -133,3 +133,7 @@ turbomind/
 
 # aliyun
 core.*
+
+*.jsonl
+
+!/data/data/svamp/test.jsonl
