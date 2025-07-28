@@ -156,26 +156,27 @@ class HumanEvalPlusEvaluator(BaseEvaluator):
                 gt_time_limit_factor=4.0,
                 mini=None,
             )
-            score = evaluate(flags)
+            score = evaluate(**flags)
             results_path = osp.join(tmp_dir, 'human_eval_eval_results.json')
             with open(results_path, 'r') as f:
                 results = json.load(f)
-            details = {}
-            for index in range(len(predictions)):
-                r = results['eval'][references[index]]
+            # details = {}
+            # for index in range(len(predictions)):
+            #     r = results['eval'][references[index]]
 
-                details[str(index)] = {
-                    'prompt': prompts[index],
-                    'prediction': predictions[index],
-                    'reference': references[index],
-                    'base_result': r['base'][0][0],
-                    'plus_result': r['plus'][0][0],
-                    'is_correct': r['base'][0][0] == 'success' and r['plus'][0][0] == 'success',
-                }
-                if r['nfiles'] > 1:
-                    details[str(index)]['warning'] = 'Multiple files in the solution. Details may be wrong.'
+            #     details[str(index)] = {
+            #         'prompt': prompts[index],
+            #         'prediction': predictions[index],
+            #         'reference': references[index],
+            #         'base_result': r['base'][0][0],
+            #         'plus_result': r['plus'][0][0],
+            #         'is_correct': r['base'][0][0] == 'success' and r['plus'][0][0] == 'success',
+            #     }
+            #     if r['nfiles'] > 1:
+            #         details[str(index)]['warning'] = 'Multiple files in the solution. Details may be wrong.'
+        print(score)
         results = {f'humaneval_plus_{k}': score[k] * 100 for k in score}
-        results['details'] = details
+        # results['details'] = details
         return results
 
 
@@ -183,13 +184,13 @@ def humaneval_postprocess_v2(text: str) -> str:
     blocks = re.findall(r'```\w*\n(.*?)```', text, re.DOTALL)
     if len(blocks) >= 1:
         text = blocks[0]
-    return text.lstrip()
+    return text
 
 def humaneval_postprocess_v3(text: str) -> str:
     blocks = re.findall(r'```\w*\n(.*?)```', text, re.DOTALL)
     if len(blocks) >= 1:
         text = blocks[-1]
-    return text.lstrip()
+    return text
 
 def humaneval_internal_v2_postprocess(text: str):
     if text.startswith('   ') and not text.startswith('    '):

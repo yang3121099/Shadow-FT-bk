@@ -16,4 +16,8 @@ cp ./evaluate.py    $TARGET_PATH/evalplus/evaluate.py
 cp ./utils.py       $TARGET_PATH/evalplus/data/utils.py
 cp ./turbomind_with_tf_above_v4_33.py   $TARGET_PATH/opencompass/models/turbomind_with_tf_above_v4_33.py
 
+# cp ./mbpp.py   ~/Shadow/opencompass/opencompass/datasets/mbpp.py
+# cp ./humaneval.py   ~/Shadow/opencompass/opencompass/datasets/humaneval.py
+# cp ./turbomind_with_tf_above_v4_33.py   ~/Shadow/opencompass/opencompass/models/turbomind_with_tf_above_v4_33.py
+
 echo "✅ 文件已复制到: $TARGET_PATH"

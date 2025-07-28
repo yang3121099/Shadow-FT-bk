@@ -32,21 +32,24 @@ datasets = sum((v for k, v in locals().items() if k.endswith('_datasets')), [])
 #                        PART 2  Models  List                         #
 #######################################################################
 
-work_dir = f'outputs/Rebuttal-0727/'
+work_dir = f'outputs/Rebuttal-quant-0727/'
 
 from opencompass.models import TurboMindModelwithChatTemplate
 
 # input .sh output "##### Evaluation list #####" below
 Baseline_settings = [
     
-('Llama-2-7b-Baseline', 'meta-llama/Llama-2-7b'),
-('Llama-2-7b-E8P-2Bit', 'relaxml/Llama-2-7b-E8P-2Bit'),
-('Llama-2-7b-E8PRVQ-3Bit', 'relaxml/Llama-2-7b-E8PRVQ-3Bit'),
-('Llama-2-7b-E8PRVQ-4Bit', 'relaxml/Llama-2-7b-E8PRVQ-4Bit'),
-('Llama-2-7b-QTIP-4Bit', 'relaxml/Llama-2-7b-QTIP-4Bit'),
-('Llama-2-7b-QTIP-3Bit', 'relaxml/Llama-2-7b-QTIP-3Bit'),
-('Llama-2-7b-QTIP-2Bit', 'relaxml/Llama-2-7b-QTIP-2Bit'),
-('Llama-2-7B-Hessians-2Sided', 'relaxml/Llama-2-7B-Hessians-2Sided'),
+# ('Llama-2-7b-Baseline', 'meta-llama/Llama-2-7b'),
+# ('Llama-2-7b-E8P-2Bit', 'relaxml/Llama-2-7b-E8P-2Bit'),
+# ('Llama-2-7b-E8PRVQ-3Bit', 'relaxml/Llama-2-7b-E8PRVQ-3Bit'),
+# ('Llama-2-7b-E8PRVQ-4Bit', 'relaxml/Llama-2-7b-E8PRVQ-4Bit'),
+# ('Llama-2-7b-QTIP-4Bit', 'relaxml/Llama-2-7b-QTIP-4Bit'),
+# ('Llama-2-7b-QTIP-3Bit', 'relaxml/Llama-2-7b-QTIP-3Bit'),
+# ('Llama-2-7b-QTIP-2Bit', 'relaxml/Llama-2-7b-QTIP-2Bit'),
+# ('Llama-2-7B-Hessians-2Sided', 'relaxml/Llama-2-7B-Hessians-2Sided'),
+
+
+('Qwen3-0.6B-Instruct-hf', 'Qwen/Qwen3-0.6B'),
 
 # ISTA-DASLab/Llama-2-7b-AQLM-2Bit-1x16-hf
 # ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf
@@ -62,38 +65,38 @@ models = []
 # #              gpu=8, max_new_tokens=4096, batch_size=2048             #
 # #######################################################################
 
-from opencompass.models import HuggingFaceBaseModel
-for abbr, path in Baseline_settings:  ## classic 4096
-    models = [
-        dict(
-            type=HuggingFaceBaseModel,
-            abbr=abbr,
-            path=path,
-            max_out_len=1024,
-            batch_size=512,
-            run_cfg=dict(num_gpus=8),
-        )
-    ]
+# from opencompass.models import HuggingFaceBaseModel
+# for abbr, path in Baseline_settings:  ## classic 4096
+#     models = [
+#         dict(
+#             type=HuggingFaceBaseModel,
+#             abbr=abbr,
+#             path=path,
+#             max_out_len=1024,
+#             batch_size=512,
+#             run_cfg=dict(num_gpus=8),
+#         )
+#     ]
 
     
 # # #######################################################################
 # # #              gpu=8, max_new_tokens=4096, batch_size=512             #
 # # #######################################################################
 
-# for abbr, path in Baseline_settings:  ## classic 4096
-#     models.append(
-#         dict(
-#             type=TurboMindModelwithChatTemplate,
-#             abbr=abbr,
-#             path=path,
-#             engine_config=dict(session_len=16384, max_batch_size=1024, tp=8),
-#             gen_config=dict(top_k=1, temperature=0, top_p=0.9, max_new_tokens=4096),
-#             max_seq_len=16384,
-#             max_out_len=4096,
-#             batch_size=512,
-#             run_cfg=dict(num_gpus=8)
-#         )
-#     )    
+for abbr, path in Baseline_settings:  ## classic 4096
+    models.append(
+        dict(
+            type=TurboMindModelwithChatTemplate,
+            abbr=abbr,
+            path=path,
+            engine_config=dict(session_len=16384, max_batch_size=1024, tp=1),
+            gen_config=dict(top_k=1, temperature=0, top_p=0.9, max_new_tokens=4096),
+            max_seq_len=16384,
+            max_out_len=4096,
+            batch_size=128,
+            run_cfg=dict(num_gpus=1)
+        )
+    )    
     
 models = models
 
