@@ -41,7 +41,7 @@ from opencompass.models import TurboMindModelwithChatTemplate
 Baseline_settings = [
     
 ('Llama-2-7b-Baseline', 'meta-llama/Llama-2-7b'),
-# ('Llama-2-7b-E8P-2Bit', 'relaxml/Llama-2-7b-E8P-2Bit'),
+('Llama-2-7b-E8P-2Bit', 'relaxml/Llama-2-7b-E8P-2Bit'),
 # ('Llama-2-7b-E8PRVQ-3Bit', 'relaxml/Llama-2-7b-E8PRVQ-3Bit'),
 # ('Llama-2-7b-E8PRVQ-4Bit', 'relaxml/Llama-2-7b-E8PRVQ-4Bit'),
 # ('Llama-2-7b-QTIP-4Bit', 'relaxml/Llama-2-7b-QTIP-4Bit'),
