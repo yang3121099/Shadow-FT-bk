@@ -20,3 +20,5 @@ _bbh1 = ['temporal_sequences', 'disambiguation_qa', 'date_understanding', 'track
 _bbh1 = ['bbh1-' + s for s in _bbh1]
 bbh1_summary_groups.append({'name': 'bbh1', 'subsets': _bbh1})
 
+bbh2_summary_groups = []
+bbh3_summary_groups = []
