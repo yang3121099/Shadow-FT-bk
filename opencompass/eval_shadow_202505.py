@@ -29,7 +29,7 @@ with read_base():
     # from opencompass.configs.datasets.aime2024.aime2024_gen_17d799 import aime2024_datasets   # noqa: F401, F403
     # from opencompass.configs.datasets.math.math_evaluatorv2_gen_cecb31 import minerva_math_datasets # minerva_math
 
-    # from opencompass.configs.datasets.math.math_evaluatorv2_gen_cecb31 import math_datasets as minerva_math_datasets # minerva_math
+    from opencompass.configs.datasets.math.math_evaluatorv2_gen_cecb31 import math_datasets as minerva_math_datasets # minerva_math
     from opencompass.configs.datasets.math.math_0shot_gen_393424 import math_datasets # MATH
     from opencompass.configs.datasets.TheoremQA.ThroremQA_0shot_cot_gen_8acdf7 import TheoremQA_datasets # 0-shot
     from opencompass.configs.datasets.SVAMP.svamp_gen_fb25e4 import svamp_datasets  # noqa: F401, F403
@@ -66,8 +66,8 @@ Baseline_settings = [
 
 
 # # Llama3.2
-# ('Meta-Llama-3.1-8b-Instruct', 'meta-llama/Meta-Llama-3-8B-Instruct'),    
-# ('Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-1B-Instruct'),    
+('Meta-Llama-3.1-8b-Instruct', 'meta-llama/Meta-Llama-3-8B-Instruct'),    
+('Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-1B-Instruct'),    
 
 
 
@@ -77,9 +77,9 @@ Baseline_settings = [
 BASE_settings=[
     
     
-# ('Qwen3-8B-Base', 'Qwen/Qwen3-8B-Base'),
-# ('Meta-Llama-3.1-8b-Base', 'meta-llama/Meta-Llama-3-8B'),    
-# ('Llama-3.2-1B-Base', 'meta-llama/Llama-3.2-1B'),    
+('Qwen3-8B-Base', 'Qwen/Qwen3-8B-Base'),
+('Meta-Llama-3.1-8b-Base', 'meta-llama/Meta-Llama-3-8B'),    
+('Llama-3.2-1B-Base', 'meta-llama/Llama-3.2-1B'),    
 
 
 
