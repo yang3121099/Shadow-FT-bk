@@ -8,8 +8,7 @@ api = HfApi()
 
 # ✅ 本地模型文件夹列表（可以根据实际路径添加）
 model_paths = [
-
-    "./opencompass/outputs/Rebuttal-0727"
+    "./opencompass/outputs/Rebuttal-0728"
 ]
 
 # ✅ 你的 HF 用户名或组织名
@@ -17,7 +16,7 @@ HF_USERNAME = "yang31210999"  # 如果是组织就写 org 名
 
 for path in model_paths:
     # model_name = os.path.basename(path)  # e.g. Qwen3-0.6B-AWQ-2b
-    model_name="Rebuttal-0727_OC-H200-d1"
+    model_name="Rebuttal-0728_OC-H200-d2"
     repo_id = f"{HF_USERNAME}/{model_name}"
     print(f"🚀 正在上传 {model_name} 到 {repo_id} ...")
 

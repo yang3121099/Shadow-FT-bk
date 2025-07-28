@@ -1,3 +1,42 @@
+
+## 0728实验脚本
+
+
+
+
+```
+pip install huggingface_hub
+huggingface-cli login
+
+git pull origin main #更新代码
+
+cd /root/shadow_exp/new_shadow/Shadow
+cd ./src
+bash ./copy_files.sh /root/miniconda3/envs/factory/lib/python3.10/site-packages
+cd ../opencompass
+
+
+python3 ./run.py ./eval_shadow_202505.py -r 20250727200010 # 请与文件内的参考指标 校准后再继续
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
+
+
+bash ./eval_instruct_0427.sh  ./eval_shadow_20250727_part1.py
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
+bash ./eval_instruct_0427.sh  ./eval_shadow_20250727.py
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
+bash ./eval_instruct_0427.sh  ./eval_quantw_20250727.py
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
+bash ./eval_instruct_0427.sh  ./eval_shadow_20250727_part2.py
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+ 
+
+```
+
+
 ## 0727实验脚本
 
 
@@ -67,6 +106,7 @@ python upload_hf.py
 
 
 ```
+
 以下是Readme，师兄无需阅读
 
 
