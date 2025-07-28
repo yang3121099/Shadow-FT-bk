@@ -16,8 +16,8 @@ model_paths = [
 HF_USERNAME = "yang31210999"  # 如果是组织就写 org 名
 
 for path in model_paths:
-    model_name = os.path.basename(path)  # e.g. Qwen3-0.6B-AWQ-2b
-    # model_name="OC_20250726_111121"
+    # model_name = os.path.basename(path)  # e.g. Qwen3-0.6B-AWQ-2b
+    model_name="Rebuttal-0727_OC-H200-d1"
     repo_id = f"{HF_USERNAME}/{model_name}"
     print(f"🚀 正在上传 {model_name} 到 {repo_id} ...")
 

@@ -48,7 +48,13 @@ Baseline_settings = [
 ('Llama-2-7b-QTIP-2Bit', 'relaxml/Llama-2-7b-QTIP-2Bit'),
 ('Llama-2-7B-Hessians-2Sided', 'relaxml/Llama-2-7B-Hessians-2Sided'),
 
+# ISTA-DASLab/Llama-2-7b-AQLM-2Bit-1x16-hf
+# ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf
+# ]ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf
+# ISTA-DASLab/Llama-2-7b-AQLM-PV-1Bit-1x16-hf
 ]
+
+
 models = []
 
 
