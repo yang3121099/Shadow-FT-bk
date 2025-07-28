@@ -52,7 +52,7 @@ datasets = sum((v for k, v in locals().items() if k.endswith('_datasets')), [])
 #                        PART 2  Models  List                         #
 #######################################################################
 
-work_dir = f'outputs/Rebuttal-0727/'
+work_dir = f'outputs/Rebuttal-0728/LearningRate'
 
 from opencompass.models import TurboMindModelwithChatTemplate, TurboMindModel
 
@@ -60,13 +60,6 @@ from opencompass.models import TurboMindModelwithChatTemplate, TurboMindModel
 Base_settings = [    
 # # Qwen3
 # ('Qwen3-8B-Base-hf', 'Qwen/Qwen3-8B-Base'),
-
-
-
-
-
-
-
 ]
 
 
@@ -74,7 +67,32 @@ Base_settings = [
 Instruct_settings =[
 # ('Qwen3-8B-Instruct-hf', 'Qwen/Qwen3-8B'),    
 
+('B-2k-lora-rank128-lr0.000005-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.000005-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.000005-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.000005-Shadow_2k/merged-I2I'),
 
+('B-2k-lora-rank128-lr0.00001-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.00001-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.00001-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.00001-Shadow_2k/merged-I2I'),
+
+('B-2k-lora-rank128-lr0.00002-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.00002-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.00002-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.00002-Shadow_2k/merged-I2I'),
+
+('B-2k-lora-rank128-lr0.00005-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.00005-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.00005-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.00005-Shadow_2k/merged-I2I'),
+
+('B-2k-lora-rank128-lr0.0001-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.0001-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.0001-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.0001-Shadow_2k/merged-I2I'),
+
+('B-2k-lora-rank128-lr0.0002-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.0002-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.0002-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.0002-Shadow_2k/merged-I2I'),
+
+('B-2k-lora-rank128-lr0.0005-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.0005-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.0005-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.0005-Shadow_2k/merged-I2I'),
+
+('B-2k-lora-rank128-lr0.001-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.001-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.001-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.001-Shadow_2k/merged-I2I'),
+
+('B-2k-lora-rank128-lr0.002-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/B-2k-lora-rank128-lr0.002-Shadow_2k/merged-B2I'),
+('I-2k-lora-rank128-lr0.002-Shadow_2k', '/root/shadow_exp/Shadow/results/0727/result-Qwen3-8B-Base-0727/I-2k-lora-rank128-lr0.002-Shadow_2k/merged-I2I'),
 
 
 

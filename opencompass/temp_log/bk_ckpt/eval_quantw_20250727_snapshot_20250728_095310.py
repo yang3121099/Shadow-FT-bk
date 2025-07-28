@@ -32,7 +32,7 @@ datasets = sum((v for k, v in locals().items() if k.endswith('_datasets')), [])
 #                        PART 2  Models  List                         #
 #######################################################################
 
-work_dir = f'outputs/Rebuttal-0728/Quant'
+work_dir = f'outputs/Rebuttal-0727/'
 # work_dir = f'outputs/Rebuttal-quant-0727/'
 
 from opencompass.models import TurboMindModelwithChatTemplate
@@ -40,7 +40,7 @@ from opencompass.models import TurboMindModelwithChatTemplate
 # input .sh output "##### Evaluation list #####" below
 Baseline_settings = [
     
-('Llama-2-7b-Baseline', 'meta-llama/Llama-2-7b'),
+# ('Llama-2-7b-Baseline', 'meta-llama/Llama-2-7b'),
 ('Llama-2-7b-E8P-2Bit', 'relaxml/Llama-2-7b-E8P-2Bit'),
 ('Llama-2-7b-E8PRVQ-3Bit', 'relaxml/Llama-2-7b-E8PRVQ-3Bit'),
 ('Llama-2-7b-E8PRVQ-4Bit', 'relaxml/Llama-2-7b-E8PRVQ-4Bit'),
@@ -60,32 +60,8 @@ Baseline_settings = [
 # ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf
 # ]ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf
 # ISTA-DASLab/Llama-2-7b-AQLM-PV-1Bit-1x16-hf
-
-('Llama-2-7b-AQLM-2Bit-1x16-hf', 'ISTA-DASLab/Llama-2-7b-AQLM-2Bit-1x16-hf'),
-('Llama-2-7b-AQLM-PV-2Bit-1x16-hf', 'ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf'),
-('Llama-2-7b-AQLM-PV-2Bit-1x16-hf', 'ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf'),
-('Llama-2-7b-AQLM-PV-1Bit-1x16-hf', 'ISTA-DASLab/Llama-2-7b-AQLM-PV-1Bit-1x16-hf'),
-
 ]
 
-vllm_settings=[
-    
-('Llama-2-7b-Baseline-vllm', 'meta-llama/Llama-2-7b'),
-('Llama-2-7b-E8P-2Bit-vllm', 'relaxml/Llama-2-7b-E8P-2Bit'),
-('Llama-2-7b-E8PRVQ-3Bit-vllm', 'relaxml/Llama-2-7b-E8PRVQ-3Bit'),
-('Llama-2-7b-E8PRVQ-4Bit-vllm', 'relaxml/Llama-2-7b-E8PRVQ-4Bit'),
-('Llama-2-7b-QTIP-4Bit-vllm', 'relaxml/Llama-2-7b-QTIP-4Bit'),
-('Llama-2-7b-QTIP-3Bit-vllm', 'relaxml/Llama-2-7b-QTIP-3Bit'),
-('Llama-2-7b-QTIP-2Bit-vllm', 'relaxml/Llama-2-7b-QTIP-2Bit'),
-
-('Llama-2-7B-Hessians-2Sided-vllm', 'relaxml/Llama-2-7B-Hessians-2Sided'),
-('Llama-2-7b-AQLM-2Bit-1x16-hf-vllm','ISTA-DASLab/Llama-2-7b-AQLM-2Bit-1x16-hf'),
-('Llama-2-7b-AQLM-PV-2Bit-1x16-hf-vllm','ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf'),
-('Llama-2-7b-AQLM-PV-2Bit-1x16-hf-vllm','ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf'),
-('Llama-2-7b-AQLM-PV-1Bit-1x16-hf-vllm','ISTA-DASLab/Llama-2-7b-AQLM-PV-1Bit-1x16-hf'),
-    
-    
-]
 
 models = []
 
@@ -106,23 +82,6 @@ for abbr, path in Baseline_settings:  ## classic 4096
             run_cfg=dict(num_gpus=8),
         )
     ]
-
-from opencompass.models import VLLM
-
-for abbr, path in vllm_settings:
-    models.append(
-        dict(
-            type=VLLM,
-            abbr=abbr,
-            path=path,
-            model_kwargs=dict(tensor_parallel_size=8),
-            max_out_len=1024,
-            max_seq_len=2048,
-            batch_size=1024,
-            generation_kwargs=dict(temperature=0),
-            run_cfg=dict(num_gpus=8, num_procs=1),
-        )
-    )
 
     
 # # #######################################################################
@@ -145,6 +104,6 @@ for abbr, path in vllm_settings:
 #     )    
     
 models = models
-# models = []
+models = []
 
 

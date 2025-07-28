@@ -52,7 +52,7 @@ datasets = sum((v for k, v in locals().items() if k.endswith('_datasets')), [])
 #                        PART 2  Models  List                         #
 #######################################################################
 
-work_dir = f'outputs/Rebuttal-0727/'
+work_dir = f'outputs/Rebuttal-0728/BaseFT'
 
 from opencompass.models import TurboMindModelwithChatTemplate, TurboMindModel
 
@@ -71,6 +71,7 @@ Instruct_settings =[
 ('Qwen3-8B-Instruct-hf', 'Qwen/Qwen3-8B'),    
 ('checkpoint-62_merged-I2I','yang31210999/Qwen3-8B-Base-0726_I-2k-lora-rank128-lr0.0002-Shadow_2k_checkpoint-62_merged-I2I')
 ('checkpoint-62_merged-B2I','yang31210999/Qwen3-8B-Base-0726_B-2k-lora-rank128-lr0.0002-Shadow_2k_checkpoint-62_merged-B2I')
+
 
 ]
 

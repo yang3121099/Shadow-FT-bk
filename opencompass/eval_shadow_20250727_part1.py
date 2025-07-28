@@ -52,7 +52,7 @@ datasets = sum((v for k, v in locals().items() if k.endswith('_datasets')), [])
 #                        PART 2  Models  List                         #
 #######################################################################
 
-work_dir = f'outputs/Rebuttal-0727/'
+work_dir = f'outputs/Rebuttal-0728/LearningRate'
 
 from opencompass.models import TurboMindModelwithChatTemplate, TurboMindModel
 
