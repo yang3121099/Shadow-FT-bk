@@ -1,3 +1,25 @@
+#  参考值
+
+#  Qwen3-8B-Instruct
+# | dataset | version | metric | mode | Qwen3-8B-Base-hf | Qwen3-8B-Instruct-hf |
+# |----- | ----- | ----- | ----- | ----- | ----- | -----|
+# | --------- Math --------- | - | - | - | - | - | - |
+# | math | - | - | - | - | - | - |
+# | math-500 | - | - | - | - | - | - |
+# | minerva_math | - | - | - | - | - | - |
+# | gsm8k | 1d7fe4 | accuracy | gen | 85.06 | 86.73 | 
+# | gsm8k_0shot | 17d799 | accuracy | gen | 79.68 | 93.78 |
+# | aime2024 | - | - | - | - | - | - |
+# | svamp | - | - | - | - | - | - |
+# | --------- Code --------- | - | - | - | - | - | - |
+# | openai_humaneval | - | - | - | - | - | - |
+# | sanitized_mbpp | - | - | - | - | - | - |
+# | humaneval_plus | 159614 | humaneval_plus_pass@1 | gen | 56.71 | 80.49 |
+
+
+
+
+
 from mmengine.config import read_base
 from opencompass.partitioners import NaivePartitioner, NumWorkerPartitioner
 from opencompass.runners import LocalRunner, VOLCRunner
@@ -140,30 +162,3 @@ for abbr, path in Baseline_settings:  ## classic 4096
     
 
 models = models
-
-# HF_USERNAME = "yang31210999"  
-# # ✅ HF Token
-# HF_TOKEN = ""
-
-
-
-#  参考值
-
-#  Qwen3-8B-Instruct
-# | dataset | version | metric | mode | Qwen3-8B-Base-hf | Qwen3-8B-Instruct-hf |
-# |----- | ----- | ----- | ----- | ----- | ----- | -----|
-# | --------- Math --------- | - | - | - | - | - | - |
-# | math | - | - | - | - | - | - |
-# | math-500 | - | - | - | - | - | - |
-# | minerva_math | - | - | - | - | - | - |
-# | gsm8k | 1d7fe4 | accuracy | gen | 85.06 | 86.73 | 
-# | gsm8k_0shot | 17d799 | accuracy | gen | 79.68 | 93.78 |
-# | aime2024 | - | - | - | - | - | - |
-# | svamp | - | - | - | - | - | - |
-# | --------- Code --------- | - | - | - | - | - | - |
-# | openai_humaneval | - | - | - | - | - | - |
-# | sanitized_mbpp | - | - | - | - | - | - |
-# | humaneval_plus | 159614 | humaneval_plus_pass@1 | gen | 56.71 | 80.49 |
-
-
-
