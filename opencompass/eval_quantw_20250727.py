@@ -50,6 +50,10 @@ Baseline_settings = [
     ('Llama-2-7b-AQLM-PV-2Bit-1x16-hf',']ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf'),
     ('Llama-2-7b-AQLM-PV-1Bit-1x16-hf','ISTA-DASLab/Llama-2-7b-AQLM-PV-1Bit-1x16-hf'),
 
+# ISTA-DASLab/Llama-2-7b-AQLM-2Bit-1x16-hf
+# ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf
+# ]ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf
+# ISTA-DASLab/Llama-2-7b-AQLM-PV-1Bit-1x16-hf
 ]
 
 
