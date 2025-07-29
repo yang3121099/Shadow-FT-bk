@@ -13,8 +13,8 @@ export HF_ALLOW_CODE_EVAL=1
 
 ##### Training #####
 ###### B  max=2000  lr=0.0002 ######
-mkdir -p "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k"
-cd "/home/ubuntu/Shadow"
+mkdir -p "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k"
+cd "/root/shadow_exp/new_shadow/Shadow"
 llamafactory-cli train \
   --model_name_or_path "meta-llama/Llama-3.1-8B" \
   --stage sft \
@@ -25,7 +25,7 @@ llamafactory-cli train \
   --template "llama3" \
   --cutoff_len 4096 \
   --max_samples 2000 \
-  --output_dir "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k" \
+  --output_dir "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k" \
   --per_device_train_batch_size 2 \
   --gradient_accumulation_steps 16 \
   --learning_rate 0.0002 \
@@ -46,8 +46,8 @@ llamafactory-cli train \
   --overwrite_cache false
 
 ###### I  max=2000  lr=0.0002 ######
-mkdir -p "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k"
-cd "/home/ubuntu/Shadow"
+mkdir -p "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k"
+cd "/root/shadow_exp/new_shadow/Shadow"
 llamafactory-cli train \
   --model_name_or_path "meta-llama/Llama-3.1-8B-Instruct" \
   --stage sft \
@@ -58,7 +58,7 @@ llamafactory-cli train \
   --template "llama3" \
   --cutoff_len 4096 \
   --max_samples 2000 \
-  --output_dir "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k" \
+  --output_dir "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k" \
   --per_device_train_batch_size 2 \
   --gradient_accumulation_steps 16 \
   --learning_rate 0.0002 \
@@ -79,39 +79,39 @@ llamafactory-cli train \
   --overwrite_cache false
 
 ##### LoRA delta-merge #####
-mkdir -p "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I"
-python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
-  --adapter_path "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k" \
+mkdir -p "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I"
+python3 /root/shadow_exp/new_shadow/Shadow/src/shadow/merge_lora.py \
+  --adapter_path "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k" \
   --target_base "meta-llama/Llama-3.1-8B-Instruct" \
   --merge_tag "B2I" \
   --template "llama3"
 
-mkdir -p "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I"
-python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
-  --adapter_path "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k" \
+mkdir -p "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I"
+python3 /root/shadow_exp/new_shadow/Shadow/src/shadow/merge_lora.py \
+  --adapter_path "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k" \
   --target_base "meta-llama/Llama-3.1-8B-Instruct" \
   --merge_tag "I2I" \
   --template "llama3"
 
-mkdir -p "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B"
-python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
-  --adapter_path "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k" \
+mkdir -p "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B"
+python3 /root/shadow_exp/new_shadow/Shadow/src/shadow/merge_lora.py \
+  --adapter_path "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k" \
   --target_base "meta-llama/Llama-3.1-8B" \
   --merge_tag "I2B" \
   --template "llama3"
 
-mkdir -p "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B"
-python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
-  --adapter_path "/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k" \
+mkdir -p "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B"
+python3 /root/shadow_exp/new_shadow/Shadow/src/shadow/merge_lora.py \
+  --adapter_path "/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k" \
   --target_base "meta-llama/Llama-3.1-8B" \
   --merge_tag "B2B" \
   --template "llama3"
 
 ##### Evaluation list #####
-# ('/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I','/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I'),
-# ('/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I','/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I'),
-# ('/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B','/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B'),
-# ('/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B','/home/ubuntu/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B'),
+# ('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I'),
+# ('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I'),
+# ('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B'),
+# ('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B'),
 
 # please copy this eval_config to opencompass/examples/eval_shadow_202505.py and then run
 

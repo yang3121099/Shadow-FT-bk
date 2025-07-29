@@ -388,6 +388,7 @@ BASE_MODELS=(
   # "Qwen3-0.6B"
   # "Qwen3-8B"
   "Llama3.1-8B"
+  "Llama3.2-1B"
 )
 
 MODEL_PAIRS=()                  # will contain "<base>||<instruct>"

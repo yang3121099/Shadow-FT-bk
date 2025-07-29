@@ -1,4 +1,41 @@
 
+
+## 0729实验脚本
+
+
+
+```
+git pull origin main #更新代码
+cd /root/shadow_exp/new_shadow/Shadow
+bash ./run.sh
+
+bash ./scripts/train_Llama-3.2-1B_0729110642.sh
+bash ./scripts/train_Llama-3.1-8B_0729110023.sh
+
+
+cd ./opencompass
+
+
+python3 ./run.py ./eval_quantw_20250727.py -r 20250727200010 
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
+python3 ./run.py ./eval_shadow_202505.py -r 20250727200010 
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
+python3 ./run.py ./eval_shadow_20250727_part1.py -r 20250727200010 
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
+python3 ./run.py ./eval_shadow_20250727_part2.py -r 20250727200010 
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
+
+
+
+```
+
+
+
+
 ## 0728实验脚本
 
 

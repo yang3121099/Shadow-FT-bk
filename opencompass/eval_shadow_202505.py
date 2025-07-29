@@ -74,7 +74,7 @@ datasets = sum((v for k, v in locals().items() if k.endswith('_datasets')), [])
 #                        PART 2  Models  List                         #
 #######################################################################
 
-work_dir = f'outputs/Rebuttal-0728/shadow-example/'
+work_dir = f'outputs/Rebuttal-0729/shadow-example/'
 
 from opencompass.models import TurboMindModelwithChatTemplate, TurboMindModel
 
@@ -82,9 +82,14 @@ from opencompass.models import TurboMindModelwithChatTemplate, TurboMindModel
 Baseline_settings = [
     
 # # Qwen3
-('Qwen3-8B-Instruct-hf', 'Qwen/Qwen3-8B'),
-# ('Meta-Llama-3.1-8b-Instruct', 'meta-llama/Meta-Llama-3-8B-Instruct'),    
-# ('Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-1B-Instruct'),    
+# ('Qwen3-8B-Instruct-hf', 'Qwen/Qwen3-8B'),
+('Meta-Llama-3.1-8b-Instruct', 'meta-llama/Meta-Llama-3-8B-Instruct'),    
+('Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-1B-Instruct'),    
+
+('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.2-1B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.2-1B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I'),
+('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.2-1B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.2-1B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I'),
+('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2I'),
+('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2I'),
 
 ]
 
@@ -92,8 +97,12 @@ BASE_settings=[
     
     
 # ('Qwen3-8B-Base', 'Qwen/Qwen3-8B-Base'),
-# ('Meta-Llama-3.1-8b-Base', 'meta-llama/Meta-Llama-3-8B'),    
-# ('Llama-3.2-1B-Base', 'meta-llama/Llama-3.2-1B'),    
+('Meta-Llama-3.1-8b-Base', 'meta-llama/Meta-Llama-3-8B'),    
+('Llama-3.2-1B-Base', 'meta-llama/Llama-3.2-1B'),    
+('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.2-1B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.2-1B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B'),
+('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.2-1B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.2-1B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B'),
+('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/I-2k-lora-rank128-lr0.0002-Shadow_2k/merge-I2B'),
+('/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B','/root/shadow_exp/new_shadow/Shadow/results/0729/result-Llama-3.1-8B-0729/B-2k-lora-rank128-lr0.0002-Shadow_2k/merge-B2B'),
 
 
 
