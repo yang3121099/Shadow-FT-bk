@@ -14,7 +14,7 @@ with read_base():
     #######################################################################
     #                          PART 1  Datasets List                      #
     #######################################################################
-    # from opencompass.configs.datasets.mmlu.mmlu_gen_4d595a import mmlu_datasets
+    from opencompass.configs.datasets.mmlu.mmlu_gen_4d595a import mmlu_datasets
     # from opencompass.configs.datasets.winogrande.winogrande_5shot_gen_6447e6 import winogrande_datasets
     from opencompass.configs.datasets.gsm8k.gsm8k_gen_1d7fe4 import gsm8k_datasets
     # from opencompass.configs.datasets.hellaswag.hellaswag_10shot_gen_e42710 import hellaswag_datasets  # noqa: F401, F403
@@ -34,7 +34,6 @@ datasets = sum((v for k, v in locals().items() if k.endswith('_datasets')), [])
 
 # work_dir = f'outputs/Rebuttal-0727/'
 work_dir = f'outputs/Rebuttal-quant-0727/'
-# work_dir = f'outputs/Rebuttal-quant-0727-compare/'
 
 from opencompass.models import TurboMindModelwithChatTemplate
 
@@ -54,56 +53,36 @@ Baseline_settings = [
 # ('Llama-2-7b-AQLM-PV-2Bit-1x16-hf',']ISTA-DASLab/Llama-2-7b-AQLM-PV-2Bit-1x16-hf'),
 # ('Llama-2-7b-AQLM-PV-1Bit-1x16-hf','ISTA-DASLab/Llama-2-7b-AQLM-PV-1Bit-1x16-hf'),
 # ('',''),
+('Qwen3-0.6B-Instruct-hf', 'Qwen/Qwen3-0.6B'),
+('Qwen3-1.7B-Instruct-hf', 'Qwen/Qwen3-1.7B'),
+('Qwen3-4B-Instruct-hf', 'Qwen/Qwen3-4B'),
+('Qwen3-8B-Instruct-hf', 'Qwen/Qwen3-8B'),
 
+# ('Qwen3-1.7B-ARBLLM', 'yang31210999/Qwen3-1.7B-ARBLLM'),
+# ('Qwen3-1.7B-AWQ-2b', 'yang31210999/Qwen3-1.7B-AWQ-2b'),
+('Qwen3-0.6B-ARBLLM', 'yang31210999/Qwen3-0.6B-ARBLLM'),
+('Qwen3-0.6B-BiLLM', 'yang31210999/Qwen3-0.6B-BiLLM'),
+('Qwen3-0.6B-GPTQ-3b', 'yang31210999/Qwen3-0.6B-GPTQ-3b'),
+('Qwen3-0.6B-GPTQ-2b', 'yang31210999/Qwen3-0.6B-GPTQ-2b'),
+('Qwen3-0.6B-AWQ-3b', 'yang31210999/Qwen3-0.6B-AWQ-3b'),
+('Qwen3-0.6B-AWQ-2b', 'yang31210999/Qwen3-0.6B-AWQ-2b'),
+('Qwen_Qwen3-0.6B_c4_xnor_0.95_8_-1_hessian-PBLLM', 'yang31210999/Qwen_Qwen3-0.6B_c4_xnor_0.95_8_-1_hessian-PBLLM'),
 
-
-# # ('Qwen3-0.6B-Instruct-hf', 'Qwen/Qwen3-0.6B'),
-# # ('Qwen3-1.7B-Instruct-hf', 'Qwen/Qwen3-1.7B'),
-# # ('Qwen3-4B-Instruct-hf', 'Qwen/Qwen3-4B'),
-# # ('Qwen3-8B-Instruct-hf', 'Qwen/Qwen3-8B'),
-    ('Qwen3-0.6B-Instruct-hf', ''),
-    ('Qwen3-1.7B-Instruct-hf', ''),
-    ('Qwen3-4B-Instruct-hf', ''),
-    ('Qwen3-8B-Instruct-hf', ''),
-# 0.6B
-    ('Qwen3-0.6B-ARBLLM','/home/ubuntu/PTQTB/qwen3_eval/ARB-LLM-main/output/Qwen3-0.6B-ARBLLM'),
-    ('Qwen3-0.6B-BiLLM','/home/ubuntu/PTQTB/qwen3_eval/BiLLM-main/output/Qwen3-0.6B-BiLLM'),
-    ('Qwen3-0.6B-GPTQ-2b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-0.6B-GPTQ-2b'),
-    ('Qwen3-0.6B-GPTQ-3b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-0.6B-GPTQ-3b'),
-    ('Qwen3-0.6B-AWQ-2b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-0.6B-AWQ-2b'),
-    ('Qwen3-0.6B-AWQ-3b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-0.6B-AWQ-3b'),
-    ('Qwen3-0.6B-PTQTP','/home/ubuntu/PTQTB/tptq/20250728/output/Qwen3-0.6B-PTQTP-1.58b'),
-    ('Qwen3-0.6B-PBLLM','/home/ubuntu/PTQTB/qwen3_eval/PB-LLM-master/output/Qwen_Qwen3-0.6B_c4_xnor_0.95_8_-1_hessian-PBLLM'),
-
-    # 1.7B
-    ('Qwen3-1.7B-ARBLLM','/home/ubuntu/PTQTB/qwen3_eval/ARB-LLM-main/output/Qwen3-1.7B-ARBLLM'),
-    ('Qwen3-1.7B-BiLLM','/home/ubuntu/PTQTB/qwen3_eval/BiLLM-main/output/Qwen3-1.7B-BiLLM'),
-    ('Qwen3-1.7B-GPTQ-2b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-1.7B-GPTQ-2b'),
-    ('Qwen3-1.7B-GPTQ-3b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-1.7B-GPTQ-3b'),
-    ('Qwen3-1.7B-AWQ-2b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-1.7B-AWQ-2b'),
-    ('Qwen3-1.7B-AWQ-3b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-1.7B-AWQ-3b'),
-    ('Qwen3-1.7B-PTQTP','/home/ubuntu/PTQTB/tptq/20250728/output/Qwen3-1.7B-PTQTP-1.58b'),
-    ('Qwen3-1.7B-PBLLM','/home/ubuntu/PTQTB/qwen3_eval/PB-LLM-master/output/Qwen_Qwen3-1.7B_c4_xnor_0.95_8_-1_hessian-PBLLM'),
-
-    # 4B
-    ('Qwen3-4B-ARBLLM','/home/ubuntu/PTQTB/qwen3_eval/ARB-LLM-main/output/Qwen3-4B-ARBLLM'),
-    ('Qwen3-4B-BiLLM','/home/ubuntu/PTQTB/qwen3_eval/BiLLM-main/output/Qwen3-4B-BiLLM'),
-    ('Qwen3-4B-GPTQ-2b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-4B-GPTQ-2b'),
-    ('Qwen3-4B-GPTQ-3b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-4B-GPTQ-3b'),
-    ('Qwen3-4B-AWQ-2b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-4B-AWQ-2b'),
-    ('Qwen3-4B-AWQ-3b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-4B-AWQ-3b'),
-    ('Qwen3-4B-PTQTP','/home/ubuntu/PTQTB/tptq/20250728/output/Qwen3-4B-PTQTP-1.58b'),
-    ('Qwen3-4B-PBLLM','/home/ubuntu/PTQTB/qwen3_eval/PB-LLM-master/output/Qwen_Qwen3-4B_c4_xnor_0.95_8_-1_hessian-PBLLM'),
-
-    # 8B
-    ('Qwen3-8B-ARBLLM','/home/ubuntu/PTQTB/qwen3_eval/ARB-LLM-main/output/Qwen3-8B-ARBLLM'),
-    ('Qwen3-8B-BiLLM','/home/ubuntu/PTQTB/qwen3_eval/BiLLM-main/output/Qwen3-8B-BiLLM'),
-    ('Qwen3-8B-GPTQ-2b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-8B-GPTQ-2b'),
-    ('Qwen3-8B-GPTQ-3b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-8B-GPTQ-3b'),
-    ('Qwen3-8B-AWQ-2b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-8B-AWQ-2b'),
-    ('Qwen3-8B-AWQ-3b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-8B-AWQ-3b'),
-    ('Qwen3-8B-PTQTP','/home/ubuntu/PTQTB/tptq/20250728/output/Qwen3-8B-PTQTP-1.58b'),
-    ('Qwen3-8B-PBLLM','/home/ubuntu/PTQTB/qwen3_eval/PB-LLM-master/output/Qwen_Qwen3-8B_c4_xnor_0.95_8_-1_hessian-PBLLM'),
+('Qwen3-1.7B-ARBLLM','/home/ubuntu/PTQTB/qwen3_eval/ARB-LLM-main/output/Qwen3-1.7B-ARBLLM'),
+('Qwen3-4B-ARBLLM','/home/ubuntu/PTQTB/qwen3_eval/ARB-LLM-main/output/Qwen3-4B-ARBLLM'),
+('Qwen3-4B-BiLLM','/home/ubuntu/PTQTB/qwen3_eval/BiLLM-main/output/Qwen3-4B-BiLLM'),
+('Qwen3-1.7B-GPTQ-3b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-1.7B-GPTQ-3b'),
+('Qwen3-4B-GPTQ-3b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-4B-GPTQ-3b'),
+('Qwen3-8B-GPTQ-3b','/home/ubuntu/PTQTB/qwen3_eval/GPTQ/output/Qwen3-8B-GPTQ-3b'),
+('Qwen3-1.7B-AWQ-2b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-1.7B-AWQ-2b'),
+('/Qwen3-1.7B-AWQ-3b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-1.7B-AWQ-3b'),
+('Qwen3-4B-AWQ-2b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-4B-AWQ-2b'),
+('Qwen3-4B-AWQ-3b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-4B-AWQ-3b'),
+('Qwen3-8B-AWQ-3b','/home/ubuntu/PTQTB/qwen3_eval/llm-awq-main/Qwen3-8B-AWQ-3b'),
+('Qwen3-0.6B-PTQTP','/home/ubuntu/PTQTB/tptq/20250728/output/Qwen3-0.6B'),
+('Qwen3-1.7B-PTQTP','/home/ubuntu/PTQTB/tptq/20250728/output/Qwen3-1.7B'),
+('Qwen3-4B-PTQTP','/home/ubuntu/PTQTB/tptq/20250728/output/Qwen3-4B'),
+('Qwen3-8B-PTQTP','/home/ubuntu/PTQTB/tptq/20250728/output/Qwen3-8B'),
 
 
 # ISTA-DASLab/Llama-2-7b-AQLM-2Bit-1x16-hf
@@ -148,12 +127,12 @@ for abbr, path in Baseline_settings:  ## classic 4096
             gen_config=dict(top_k=1, temperature=0, top_p=0.9, max_new_tokens=4096),
             max_seq_len=16384,
             max_out_len=4096,
-            batch_size=512,
+            batch_size=128,
             run_cfg=dict(num_gpus=1)
         )
     )    
     
-# models = models
+models = models
 
 
 # models = []

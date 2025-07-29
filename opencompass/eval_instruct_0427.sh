@@ -150,7 +150,7 @@ mkdir -p "$BK_DIR"
 # defaults
 # ---------------------------
 NUM_WORKERS=32
-EVAL_INTERVAL=60   # 10 min
+EVAL_INTERVAL=200   # 10 min
 DO_SNAPSHOT=1
 # EVAL_INTERVAL=1200   # 30 min
 
@@ -258,3 +258,9 @@ wait "$INFER_PID" || true
 wait "$PERIODIC_PID" || true
 
 echo "[INFO] All done. Logs & snapshot in → $BK_DIR"
+
+
+# bash ./eval_instruct_0427.sh  ./eval_quantw_20250727-bk.py 
+# bash ./eval_instruct_0427.sh  ./eval_quantw_20250727-bk.py
+
+# python3 ./run.py ./eval_quantw_20250727-bk.py  -r 20250727_200012
