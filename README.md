@@ -6,6 +6,10 @@
 
 ```
 git pull origin main #更新代码
+
+conda activate factory
+pip install aqlm[gpu,cpu]
+
 cd /root/shadow_exp/new_shadow/Shadow
 bash ./run.sh
 
