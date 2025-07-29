@@ -47,6 +47,8 @@ bash ./scripts/train_Llama-3.1-8B_0729110023.sh
 
 
 cd ./opencompass
+pip install huggingface_hub
+huggingface-cli login
 
 
 python3 ./run.py ./eval_shadow_202505.py -r 20250727200010 # 请与文件内的参考指标 校准后再继续
