@@ -18,7 +18,7 @@ with read_base():
     from opencompass.configs.datasets.winogrande.winogrande_5shot_gen_6447e6 import winogrande_datasets
     from opencompass.configs.datasets.gsm8k.gsm8k_gen_1d7fe4 import gsm8k_datasets
     from opencompass.configs.datasets.hellaswag.hellaswag_10shot_gen_e42710 import hellaswag_datasets  # noqa: F401, F403
-    from opencompass.configs.datasets.piqa.piqa_gen_1194eb import piqa_datasets  # noqa: F401, F403
+    # from opencompass.configs.datasets.piqa.piqa_gen_1194eb import piqa_datasets  # noqa: F401, F403
     from opencompass.configs.datasets.ARC_e.ARC_e_gen_1e0de5 import ARC_e_datasets  # noqa: F401, F403
     from opencompass.configs.datasets.ARC_c.ARC_c_gen_1e0de5 import ARC_c_datasets as ARC_c2_datasets #效果不好，直接去掉
     from opencompass.configs.datasets.ARC_c.ARC_c_cot_gen_926652 import ARC_c_datasets #效果还行，比官方还高    
