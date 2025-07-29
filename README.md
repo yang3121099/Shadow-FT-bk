@@ -5,6 +5,35 @@
 
 
 ```
+# 环境安装
+cd /root
+mkdir -p /root/shadow_exp/new_shadow
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+eval "$(/root/miniconda3/bin/conda shell.bash hook)"
+
+conda create -n factory python=3.10 -y
+conda activate factory
+
+cd /root/shadow_exp/new_shadow
+git clone https://github.com/yang3121099/Shadow-FT-bk
+mv Shadow-FT-bk Shadow
+cd Shadow
+pip install -e ".[torch,metrics]"
+pip install importlib_metadata omegaconf
+pip install torch==2.6.0 transformers==4.52.1 torchvision  deepspeed -U
+cd ./opencompass
+# pip install -U opencompass
+pip install -e .
+export COMPASS_DATA_CACHE="/root/shadow_exp/new_shadow/opencompass" 
+
+pip install lmdeploy evalplus==0.3.1 latex2sympy2_extended math_verify prettytable jieba rouge_chinese rank_bm25 gradio_client tree_sitter_languages  fuzzywuzzy  h5py peft==0.15.2
+git clone git@github.com:open-compass/human-eval.git #安装HumanEval
+cd human-eval && pip install -e .
+pip install git+https://github.com/EleutherAI/lm-evaluation-harness.git
+
+
+#以下正文
 git pull origin main #更新代码
 
 conda activate factory
@@ -20,10 +49,13 @@ bash ./scripts/train_Llama-3.1-8B_0729110023.sh
 cd ./opencompass
 
 
+python3 ./run.py ./eval_shadow_202505.py -r 20250727200010 # 请与文件内的参考指标 校准后再继续
+
+
 python3 ./run.py ./eval_quantw_20250727.py -r 20250727200010 
 python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf  请重新传入hf_ token
 
-python3 ./run.py ./eval_shadow_202505.py -r 20250727200010 
+python3 ./run.py ./eval_shadow_20250729.py -r 20250727200010 
 python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
 
 python3 ./run.py ./eval_shadow_20250727_part1.py -r 20250727200010 
