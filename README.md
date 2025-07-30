@@ -57,11 +57,19 @@ python3 ./run.py ./eval_shadow_202505.py -r 20250727200010 # 请与文件内的�
 python3 ./run.py ./eval_shadow_20250729.py -r 20250727200010 
 python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf  请重新传入hf_ token
 
+
+#若有上次的ckpt，则执行下面的内容part1
 python3 ./run.py ./eval_shadow_20250727_part1.py -r 20250727200010 
 python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
 
+# #如果没有上次的ckpt，则执行下面这组part3
+# bash ./scripts/train_Qwen3-8B-Base_0730042234.sh
+# python3 ./run.py ./eval_shadow_20250727_part3.py -r 20250727200010  
+# python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
 python3 ./run.py ./eval_shadow_20250727_part2.py -r 20250727200010 
 python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+
 
 
 

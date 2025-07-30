@@ -341,8 +341,8 @@ is_lora()   { [[ "${USE_LORA,,}" == "true" ]]; }
 
 lora_ranks=(128)
 # ratios=(0.5)
-learning_rates_lora=(2e-4)
-# learning_rates_lora=(5e-6 1e-5 2e-5 5e-4 1e-4 2e-4 5e-4 1e-3 2e-3)
+# learning_rates_lora=(2e-4)
+learning_rates_lora=(5e-6 1e-5 2e-5 5e-4 1e-4 2e-4 5e-4 1e-3 2e-3)
 learning_rates_sft=(1e-5)
 
 if is_lora; then
@@ -386,9 +386,9 @@ MODEL_PAIR_FILE="$WORKSPACE_DIR/examples/model_pair.json"
 BASE_MODELS=(
   # "Qwen2.5-14B"
   # "Qwen3-0.6B"
-  # "Qwen3-8B"
-  "Llama3.1-8B"
-  "Llama3.2-1B"
+  "Qwen3-8B"
+  # "Llama3.1-8B"
+  # "Llama3.2-1B"
 )
 
 MODEL_PAIRS=()                  # will contain "<base>||<instruct>"
@@ -594,8 +594,8 @@ for PAIR in "${MODEL_PAIRS[@]}"; do
     for LR in "${learning_rates[@]}"; do
       merge_lora "$B_MODEL" B "$I_MODEL" I "$LR"          # B2I（启用，#）
       merge_lora "$I_MODEL" I "$I_MODEL" I "$LR"          # I2I（启用，#）
-      merge_lora "$I_MODEL" I "$B_MODEL" B "$LR"   # I2B（命令 #，evaluation ##）
-      merge_lora "$B_MODEL" B "$B_MODEL" B "$LR"      # B2B（命令 #，evaluation ##）
+      merge_lora "$I_MODEL" I "$B_MODEL" B "$LR"  "#"  # I2B（命令 #，evaluation ##）
+      merge_lora "$B_MODEL" B "$B_MODEL" B "$LR"   "#"    # B2B（命令 #，evaluation ##）
     done
   else
     echo "##### SFT delta-merge #####" >> "$SCRIPT_FILE"
