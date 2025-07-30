@@ -54,11 +54,8 @@ huggingface-cli login
 python3 ./run.py ./eval_shadow_202505.py -r 20250727200010 # 请与文件内的参考指标 校准后再继续
 
 
-python3 ./run.py ./eval_quantw_20250727.py -r 20250727200010 
-python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf  请重新传入hf_ token
-
 python3 ./run.py ./eval_shadow_20250729.py -r 20250727200010 
-python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
+python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf  请重新传入hf_ token
 
 python3 ./run.py ./eval_shadow_20250727_part1.py -r 20250727200010 
 python /root/shadow_exp/new_shadow/Shadow/upload_hf.py #自动上传hf
