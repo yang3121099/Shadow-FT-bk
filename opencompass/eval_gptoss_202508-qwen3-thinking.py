@@ -123,10 +123,10 @@ for abbr, path in no_thinking_settings:  ## classic 4096
             type=TurboMindModelwithChatTemplate,
             abbr=abbr,
             path=path,
-            engine_config=dict(session_len=35536, max_batch_size=4096, tp=1),
-            gen_config=dict(top_k=1, temperature=0, top_p=0.9, max_new_tokens=32768),
-            max_seq_len=35536,
-            max_out_len=32768,
+            engine_config=dict(session_len=5096, max_batch_size=4096, tp=1),
+            gen_config=dict(top_k=1, temperature=0, top_p=0.9, max_new_tokens=4096),
+            max_seq_len=5096,
+            max_out_len=4096,
             batch_size=128,
             run_cfg=dict(num_gpus=1)
         )

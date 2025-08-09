@@ -1,10 +1,14 @@
 import os
 from huggingface_hub import HfApi, HfFolder, upload_folder
 
-# ✅ 设置你的 HF Token（最好用 write 权限的 token）
-HF_TOKEN = ""
+# 从环境变量中读取 HF Token
+HF_TOKEN = os.environ.get("HF_TOKEN")
+if not HF_TOKEN:
+    raise ValueError("环境变量 HF_TOKEN 未设置，请先运行：export HF_TOKEN=''")
+
 HfFolder.save_token(HF_TOKEN)
 api = HfApi()
+
 
 # ✅ 本地模型文件夹列表（可以根据实际路径添加）
 model_paths = [

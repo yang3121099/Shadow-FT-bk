@@ -2,8 +2,11 @@
 import os
 from huggingface_hub import HfApi, HfFolder, upload_folder
 
-# ✅ 设置 HF Token（确保有 write 权限）
-HF_TOKEN = " "
+# 从环境变量中读取 HF Token
+HF_TOKEN = os.environ.get("HF_TOKEN")
+if not HF_TOKEN:
+    raise ValueError("环境变量 HF_TOKEN 未设置，请先运行：export HF_TOKEN=''")
+
 HfFolder.save_token(HF_TOKEN)
 api = HfApi()
 
