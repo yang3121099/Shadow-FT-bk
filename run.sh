@@ -477,6 +477,7 @@ for PAIR in "${MODEL_PAIRS[@]}"; do
   # suffix_name="s1k_gptoss20b_low"
   # cutoff_len=4096
 
+# s1k_gptoss20b_sharegpt_think
   DATASET="s1k_gptoss20b_high"
   suffix_name="s1k_gptoss20b_high"
   cutoff_len=32768
@@ -575,8 +576,8 @@ for PAIR in "${MODEL_PAIRS[@]}"; do
           local K; K="$(format_k "$MAX")"
           local ADAP="$SRC_ROOT/${SRC_TAG}-${K}-lora-rank${RANK}-${LR_TAG}-${suffix_name}"
           local TAG="${SRC_TAG}2${TGT_TAG}"
-          # 合并产物目录：放在对应适配器目录下，并添加 merge-<TAG> 后缀（lr 已在父目录体现）
-          local MERGED_DIR="$ADAP/merge-${TAG}"
+          # 合并产物目录：放在对应适配器目录下，并添加 merged-<TAG> 后缀（lr 已在父目录体现）
+          local MERGED_DIR="$ADAP/merged-${TAG}"
 
           {
             echo "mkdir -p \"$MERGED_DIR\""
@@ -612,7 +613,7 @@ for PAIR in "${MODEL_PAIRS[@]}"; do
     LR_TAG="$(lr_tag_dec "$LR")"
     K="$(format_k "${samples[0]}")"
     B_DIR="$RESULTS_DIR/${MONTHDAY}/result-${MODEL_BASE}-${MONTHDAY}/B-${K}-sft-${LR_TAG}-${suffix_name}"
-    MERGED_DIR="$B_DIR/merge-B2I"
+    MERGED_DIR="$B_DIR/merged-B2I"
     {
       echo "mkdir -p \"$MERGED_DIR\""
       echo "python3 $WORKSPACE_DIR/src/shadow/apply_diff.py \\"

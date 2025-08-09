@@ -77,39 +77,39 @@ llamafactory-cli train \
   --overwrite_cache false
 
 ##### LoRA delta-merge #####
-mkdir -p "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-B2I"
+mkdir -p "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2I"
 python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
   --adapter_path "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low" \
   --target_base "Qwen/Qwen3-4B-Instruct-2507" \
   --merge_tag "B2I" \
   --template "qwen3"
 
-mkdir -p "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-I2I"
+mkdir -p "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I"
 python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
   --adapter_path "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low" \
   --target_base "Qwen/Qwen3-4B-Instruct-2507" \
   --merge_tag "I2I" \
   --template "qwen3"
 
-mkdir -p "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-I2B"
+mkdir -p "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B"
 python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
  --adapter_path "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low" \
  --target_base "Qwen/Qwen3-4B-Thinking-2507" \
  --merge_tag "I2B" \
  --template "qwen3"
 
-mkdir -p "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-B2B"
+mkdir -p "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B"
 python3 /home/ubuntu/Shadow/src/shadow/merge_lora.py \
  --adapter_path "/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low" \
  --target_base "Qwen/Qwen3-4B-Thinking-2507" \
  --merge_tag "B2B" \
  --template "qwen3"
 
-##### Evaluation list #####
-# ('/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-B2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-B2I'),
-# ('/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-I2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-I2I'),
-## ('/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-I2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-I2B'),
-## ('/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-B2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merge-B2B'),
+#### Evaluation list #####
+('/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2I'),
+('/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I'),
+('/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B'),
+('/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B'),
 
 # please copy this eval_config to opencompass/examples/eval_shadow_202505.py and then run
 

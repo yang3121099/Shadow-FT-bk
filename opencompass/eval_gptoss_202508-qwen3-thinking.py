@@ -48,11 +48,11 @@ with read_base():
     from opencompass.configs.datasets.gpqa.gpqa_gen_4baadb import gpqa_datasets #noCoT openai_simple and 0-shot
 
     ######################### Math-7 (mathematical) #########################
-    from opencompass.configs.datasets.aime2024.aime2024_gen_17d799 import aime2024_datasets   # noqa: F401, F403
+    # from opencompass.configs.datasets.aime2024.aime2024_gen_17d799 import aime2024_datasets   # noqa: F401, F403
     # from opencompass.configs.datasets.math.math_evaluatorv2_gen_cecb31 import minerva_math_datasets # minerva_math
 
-    from opencompass.configs.datasets.math.math_evaluatorv2_gen_cecb31 import math_datasets as minerva_math_datasets # minerva_math
-    from opencompass.configs.datasets.math.math_0shot_gen_393424 import math_datasets # MATH
+    # from opencompass.configs.datasets.math.math_evaluatorv2_gen_cecb31 import math_datasets as minerva_math_datasets # minerva_math
+    # from opencompass.configs.datasets.math.math_0shot_gen_393424 import math_datasets # MATH
     # from opencompass.configs.datasets.TheoremQA.ThroremQA_0shot_cot_gen_8acdf7 import TheoremQA_datasets # 0-shot
     # from opencompass.configs.datasets.SVAMP.svamp_gen_fb25e4 import svamp_datasets  # noqa: F401, F403
     from opencompass.configs.datasets.gsm8k.gsm8k_gen_1d7fe4 import gsm8k_datasets
@@ -85,13 +85,27 @@ thinking_settings = [
 # # Qwen3 thinking is Base
 ('Qwen3-4B-thinking', 'Qwen/Qwen3-4B-Thinking-2507'),
 # ('Meta-Llama-3.1-8b-Instruct', 'meta-llama/Meta-Llama-3-8B-Instruct'),    
-# ('Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-1B-Instruct'),    
+# ('Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-1B-Instruct'),   
+ 
+# # ('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2B'),
+# ('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2B'),
+# # ('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B'),
+# ('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B'),
+
 
 ]
 
 no_thinking_settings=[
     
 ('Qwen3-4B-no-thinking', 'Qwen/Qwen3-4B-Instruct-2507'),
+
+
+
+# ('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2I'),
+('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I'),
+
+# ('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2I'),
+('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2I'),
 
 # ('Qwen3-8B-Base', 'Qwen/Qwen3-8B-Base'),
 # ('Meta-Llama-3.1-8b-Base', 'meta-llama/Meta-Llama-3-8B'),    
@@ -109,9 +123,9 @@ for abbr, path in no_thinking_settings:  ## classic 4096
             type=TurboMindModelwithChatTemplate,
             abbr=abbr,
             path=path,
-            engine_config=dict(session_len=16384, max_batch_size=4096, tp=1),
+            engine_config=dict(session_len=35536, max_batch_size=4096, tp=1),
             gen_config=dict(top_k=1, temperature=0, top_p=0.9, max_new_tokens=32768),
-            max_seq_len=16384,
+            max_seq_len=35536,
             max_out_len=32768,
             batch_size=128,
             run_cfg=dict(num_gpus=1)
@@ -124,9 +138,9 @@ for abbr, path in thinking_settings:  ## classic 4096
             type=TurboMindModelwithChatTemplate,
             abbr=abbr,
             path=path,
-            engine_config=dict(session_len=16384, max_batch_size=4096, tp=1),
+            engine_config=dict(session_len=35536, max_batch_size=4096, tp=1),
             gen_config=dict(top_k=1, temperature=0, top_p=0.9, max_new_tokens=32768,enable_thinking=True),
-            max_seq_len=16384,
+            max_seq_len=35536,
             max_out_len=32768,
             batch_size=128,
             run_cfg=dict(num_gpus=1),
