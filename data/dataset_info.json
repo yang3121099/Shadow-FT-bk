@@ -1,4 +1,54 @@
 {
+
+  "s1k_gptoss20b": {
+    "file_name": "s1k_gptoss20b_sharegpt.json",
+    "formatting": "sharegpt",
+    "columns": { "messages": "messages" },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
+  "s1k_gptoss20b_low": {
+    "file_name": "s1k_gptoss20b_sharegpt_low.json",
+    "formatting": "sharegpt",
+    "columns": { "messages": "messages" },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
+  "s1k_gptoss20b_middel": {
+    "file_name": "s1k_gptoss20b_sharegpt_middel.json",
+    "formatting": "sharegpt",
+    "columns": { "messages": "messages" },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
+  "s1k_gptoss20b_high": {
+    "file_name": "s1k_gptoss20b_sharegpt_high.json",
+    "formatting": "sharegpt",
+    "columns": { "messages": "messages" },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
+  
   "Shadow_2k": {
   "file_name": "Shadow_2k.parquet",
   "formatting": "sharegpt",

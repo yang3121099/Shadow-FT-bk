@@ -341,8 +341,8 @@ is_lora()   { [[ "${USE_LORA,,}" == "true" ]]; }
 
 lora_ranks=(128)
 # ratios=(0.5)
-# learning_rates_lora=(2e-4)
-learning_rates_lora=(5e-6 1e-5 2e-5 5e-4 1e-4 2e-4 5e-4 1e-3 2e-3)
+learning_rates_lora=(2e-4)
+# learning_rates_lora=(5e-6 1e-5 2e-5 5e-4 1e-4 2e-4 5e-4 1e-3 2e-3)
 learning_rates_sft=(1e-5)
 
 if is_lora; then
@@ -386,7 +386,8 @@ MODEL_PAIR_FILE="$WORKSPACE_DIR/examples/model_pair.json"
 BASE_MODELS=(
   # "Qwen2.5-14B"
   # "Qwen3-0.6B"
-  "Qwen3-8B"
+  # "Qwen3-8B"
+"Qwen3-4B-Thinking-2507"
   # "Llama3.1-8B"
   # "Llama3.2-1B"
 )
@@ -472,10 +473,16 @@ for PAIR in "${MODEL_PAIRS[@]}"; do
   } >> "$SCRIPT_FILE"
 
   # ================= constants =================
-  DATASET="Shadow_2k"
-  suffix_name="Shadow_2k"
-  cutoff_len=4096
-  samples=(2000)
+  # DATASET="s1k_gptoss20b_low"
+  # suffix_name="s1k_gptoss20b_low"
+  # cutoff_len=4096
+
+  DATASET="s1k_gptoss20b_high"
+  suffix_name="s1k_gptoss20b_high"
+  cutoff_len=32768
+
+  # samples=(2000)
+  samples=(1000)
   logging_steps=1; save_steps=1000; per_device_train_batch_size=2
   gradient_accumulation_steps=16; num_train_epochs=1
   lr_scheduler_type="cosine"; warmup_ratio=0.1; bf16=true
