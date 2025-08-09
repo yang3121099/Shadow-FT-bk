@@ -65,7 +65,7 @@ with read_base():
 
     # # original OpenCompass may has bug for MBPP and Humaneval+
     # from opencompass.configs.datasets.mbpp.sanitized_mbpp_mdblock_gen_a447ff import sanitized_mbpp_datasets 
-    from opencompass.configs.datasets.humaneval_plus.humaneval_plus_openai_simple_evals_gen_159614 import humaneval_plus_datasets 
+    # from opencompass.configs.datasets.humaneval_plus.humaneval_plus_openai_simple_evals_gen_159614 import humaneval_plus_datasets 
 
     
 datasets = sum((v for k, v in locals().items() if k.endswith('_datasets')), [])
@@ -87,25 +87,25 @@ thinking_settings = [
 # ('Meta-Llama-3.1-8b-Instruct', 'meta-llama/Meta-Llama-3-8B-Instruct'),    
 # ('Llama-3.2-1B-Instruct', 'meta-llama/Llama-3.2-1B-Instruct'),   
  
-# # ('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2B'),
-# ('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2B'),
-# # ('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B'),
-# ('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B'),
+# ('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2B'),
+('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2B'),
+# ('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2B'),
+('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2B'),
 
 
 ]
 
 no_thinking_settings=[
     
-('Qwen3-4B-no-thinking', 'Qwen/Qwen3-4B-Instruct-2507'),
+# ('Qwen3-4B-no-thinking', 'Qwen/Qwen3-4B-Instruct-2507'),
 
 
 
 # ('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-B2I'),
-('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I'),
-
+# ('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_low/merged-I2I'),
+# 
 # ('result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/B-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-B2I'),
-('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2I'),
+# ('result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2I','/home/ubuntu/Shadow/results/0809/result-Qwen3-4B-Thinking-2507-0809/I-1k-lora-rank128-lr0.0002-s1k_gptoss20b_high/merged-I2I'),
 
 # ('Qwen3-8B-Base', 'Qwen/Qwen3-8B-Base'),
 # ('Meta-Llama-3.1-8b-Base', 'meta-llama/Meta-Llama-3-8B'),    
